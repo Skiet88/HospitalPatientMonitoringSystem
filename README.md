@@ -8,6 +8,9 @@ A real-time system for monitoring patient vitals, managing alerts, and coordinat
 
 - 📄 [SPECIFICATION.md](./SPECIFICATION.md) — Full system specification including domain, problem statement, and scope
 - 🏗️ [ARCHITECTURE.md](./ARCHITECTURE.md) — C4 architectural diagrams (Context, Container, Component, Code)
+- 👥 [STAKEHOLDERS.md](./STAKEHOLDERS.md) — Stakeholder analysis table with roles, concerns, pain points, and success metrics
+- 📋 [SRD.md](./SRD.md) — System Requirements Document with 12 functional and 9 non-functional requirements
+- 💭 [REFLECTION.md](./REFLECTION.md) — Reflection on balancing competing stakeholder needs
 
 ---
 
