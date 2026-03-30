@@ -1,99 +1,140 @@
-
----
-
-# 📁 FILE 2: `USE_CASE_SPEC.md`
-
-```markdown
 # Use Case Specifications
 
-## 1. View Patient Vitals
-Actor: Doctor  
-Precondition: Logged in  
-Postcondition: Vitals displayed  
+---
 
-Basic Flow:
-1. Doctor logs in  
-2. Selects patient  
-3. System displays vitals  
+## Use Case 1: Record Patient Vitals
 
-Alternative:
-- Patient not found → error  
+**Actor:** Nurse  
+**Precondition:** Nurse is logged into the system  
+**Postcondition:** Patient vital data is stored successfully  
+
+### Basic Flow:
+1. Nurse logs into the system  
+2. Nurse selects a patient from the dashboard  
+3. Nurse enters vital readings (heart rate, blood pressure, temperature)  
+4. System validates the input values  
+5. System saves the data to the database  
+6. System confirms successful recording  
+
+### Alternative Flows:
+- If input values are invalid → system displays validation error  
+- If database save fails → system displays error message  
 
 ---
 
-## 2. Record Patient Vitals
-Actor: Nurse  
-Precondition: Logged in  
-Postcondition: Data saved  
+## Use Case 2: View Patient Vitals
 
-Basic Flow:
-1. Enter vitals  
-2. Validate data  
-3. Save to system  
+**Actor:** Doctor  
+**Precondition:** Doctor is logged into the system  
+**Postcondition:** Patient vitals are displayed  
 
-Alternative:
-- Invalid data → error  
+### Basic Flow:
+1. Doctor logs into the system  
+2. Doctor selects a patient  
+3. System retrieves patient data  
+4. System displays real-time vitals  
 
----
-
-## 3. Receive Alert
-Actor: Doctor  
-Precondition: System running  
-Postcondition: Alert displayed  
-
-Basic Flow:
-1. System detects abnormal vitals  
-2. Alert sent to doctor  
+### Alternative Flows:
+- If patient is not found → system displays error  
+- If data retrieval fails → system shows error message  
 
 ---
 
-## 4. Trigger Alert
-Actor: Nurse  
-Precondition: Logged in  
-Postcondition: Alert triggered  
+## Use Case 3: Receive Alert
 
-Basic Flow:
-1. Nurse identifies abnormal vitals  
-2. Triggers alert  
+**Actor:** Doctor  
+**Precondition:** System is actively monitoring patient vitals  
+**Postcondition:** Doctor is notified of abnormal condition  
 
----
+### Basic Flow:
+1. System detects abnormal vital readings  
+2. System generates an alert  
+3. System sends notification to doctor  
+4. Doctor views alert details  
 
-## 5. Monitor Patients
-Actor: Nurse  
-Precondition: Logged in  
-Postcondition: Patients monitored  
-
-Basic Flow:
-1. Open dashboard  
-2. View patient list  
+### Alternative Flows:
+- If notification fails → system logs error and retries  
 
 ---
 
-## 6. Manage Users
-Actor: Admin  
-Precondition: Logged in  
-Postcondition: User updated  
+## Use Case 4: Trigger Alert
 
-Basic Flow:
-1. Add/edit/remove user  
+**Actor:** Nurse  
+**Precondition:** Nurse is logged into the system  
+**Postcondition:** Alert is generated and sent  
 
----
+### Basic Flow:
+1. Nurse observes abnormal patient condition  
+2. Nurse manually triggers alert  
+3. System processes alert  
+4. System notifies doctor  
 
-## 7. Configure System
-Actor: Admin  
-Precondition: Logged in  
-Postcondition: Settings updated  
-
-Basic Flow:
-1. Change system settings  
+### Alternative Flows:
+- If system fails → alert not sent and error displayed  
 
 ---
 
-## 8. Review Patient History
-Actor: Doctor  
-Precondition: Logged in  
-Postcondition: History displayed  
+## Use Case 5: Monitor Patients
 
-Basic Flow:
-1. Select patient  
-2. View history  
+**Actor:** Nurse  
+**Precondition:** Nurse is logged into the system  
+**Postcondition:** Patient data is displayed continuously  
+
+### Basic Flow:
+1. Nurse opens monitoring dashboard  
+2. System displays all patients in ward  
+3. System updates vital data in real-time  
+
+### Alternative Flows:
+- If connection fails → system shows offline status  
+
+---
+
+## Use Case 6: Manage Users
+
+**Actor:** Admin  
+**Precondition:** Admin is logged into the system  
+**Postcondition:** User account is created, updated, or deleted  
+
+### Basic Flow:
+1. Admin accesses user management panel  
+2. Admin selects action (add, update, delete)  
+3. System processes request  
+4. System confirms action  
+
+### Alternative Flows:
+- If invalid user data → system displays error  
+
+---
+
+## Use Case 7: Configure System
+
+**Actor:** Admin  
+**Precondition:** Admin is logged into the system  
+**Postcondition:** System settings are updated  
+
+### Basic Flow:
+1. Admin opens configuration settings  
+2. Admin modifies thresholds or parameters  
+3. System validates changes  
+4. System saves new configuration  
+
+### Alternative Flows:
+- If invalid configuration → system displays error  
+
+---
+
+## Use Case 8: Review Patient History
+
+**Actor:** Doctor  
+**Precondition:** Doctor is logged into the system  
+**Postcondition:** Patient history is displayed  
+
+### Basic Flow:
+1. Doctor selects patient  
+2. Doctor requests history  
+3. System retrieves historical data  
+4. System displays patient history  
+
+### Alternative Flows:
+- If no history found → system displays message  
