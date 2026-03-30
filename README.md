@@ -1,39 +1,91 @@
-# 🏥 Hospital Patient Monitoring System
+# 🏥 Hospital Patient Monitoring System (HPMS)
 
-A real-time system for monitoring patient vitals, managing alerts, and coordinating care across hospital departments. Designed to reduce response times, minimize manual errors, and give healthcare professionals instant access to patient data.
-
----
-
-## 📋 Documents
-
-- 📄 [SPECIFICATION.md](./SPECIFICATION.md) — Full system specification including domain, problem statement, and scope
-- 🏗️ [ARCHITECTURE.md](./ARCHITECTURE.md) — C4 architectural diagrams (Context, Container, Component, Code)
-- 👥 [STAKEHOLDERS.md](./STAKEHOLDERS.md) — Stakeholder analysis table with roles, concerns, pain points, and success metrics
-- 📋 [SRD.md](./SRD.md) — System Requirements Document with 12 functional and 9 non-functional requirements
-- 💭 [REFLECTION.md](./REFLECTION.md) — Reflection on balancing competing stakeholder needs
+A real-time distributed system for continuous monitoring of patient vitals, alert generation, and clinical coordination across hospital wards. The system is designed to improve response time to patient deterioration, reduce manual monitoring overhead, and support data-driven clinical decision-making.
 
 ---
 
-## 🚀 What This System Will Do
+## 📌 Project Overview
 
-Once completed, the Hospital Patient Monitoring System will:
+The Hospital Patient Monitoring System (HPMS) enables healthcare professionals to:
 
-- **Monitor** patient vitals (heart rate, blood pressure, oxygen levels, temperature) in real time
-- **Alert** nurses and doctors instantly when readings fall outside safe thresholds
-- **Track** patient history and generate reports for medical staff
-- **Integrate** with hospital EHR (Electronic Health Records) systems
-- **Support** role-based access for doctors, nurses, and admins
-- **Provide** a dashboard for ward-level and hospital-level patient status
+- Continuously monitor patient vital signs in real time
+- Receive immediate alerts when readings exceed safe thresholds
+- Access patient history and trend data for clinical assessment
+- Coordinate care across doctors, nurses, and administrative staff
+- Maintain secure, role-based access to sensitive medical data
+
+The system prioritises **patient safety, system reliability, and clinical efficiency** under high-load hospital environments.
 
 ---
 
-## 🛠️ Tech Stack (Planned)
+## 📂 Project Documentation
 
-| Layer | Technology |
-|---|---|
-| Frontend | React.js |
-| Backend | Node.js / Express |
-| Database | PostgreSQL |
-| Real-time | WebSockets |
-| Auth | JWT + Role-based access |
-| Deployment | Docker / AWS |
+- 📄 **[SPECIFICATION.md](./SPECIFICATION.md)**  
+  System overview including domain context, scope, and problem definition
+
+- 🏗️ **[ARCHITECTURE.md](./ARCHITECTURE.md)**  
+  C4 model architecture (Context, Container, Component, Code diagrams)
+
+- 👥 **[STAKEHOLDERS.md](./STAKEHOLDERS.md)**  
+  Stakeholder analysis including goals, concerns, and system conflicts
+
+- 📋 **[SRD.md](./SRD.md)**  
+  System Requirements Document (12 functional + 9 non-functional requirements)
+
+- 🧪 **[USE_CASE_SPEC.md](./USE_CASE_SPEC.md)**  
+  Detailed use case specifications for system interactions
+
+- 💭 **[REFLECTION.md](./REFLECTION.md)**  
+  Analysis of stakeholder conflicts and trade-off decisions in requirements engineering
+
+---
+
+## 🚀 Core System Capabilities
+
+Once implemented, HPMS will provide:
+
+- 📡 **Real-time Monitoring** — Live tracking of vital signs using WebSocket communication
+- 🚨 **Smart Alerting System** — Multi-level alerts (warning/critical) based on configurable thresholds
+- 📊 **Clinical Dashboard** — Role-based dashboards tailored for nurses, doctors, and admins
+- 🔐 **Secure Access Control** — JWT-based authentication with role-based permissions
+- 🧾 **Patient History Tracking** — Time-series storage of patient vitals for trend analysis
+- 🏥 **Hospital Integration Ready** — Designed for interoperability with EHR systems
+
+---
+
+## 🧑‍⚕️ System Roles
+
+- **Doctors** → Monitor patients, review history, adjust thresholds
+- **Nurses** → Record vitals, respond to alerts, monitor wards
+- **Administrators** → Manage users, system configuration, access control
+- **Technicians** → Maintain system infrastructure and sensor reliability
+- **Patients (Read-only)** → View personal health data (if enabled)
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer        | Technology |
+|--------------|------------|
+| Frontend     | React.js   |
+| Backend      | Node.js / Express |
+| Database     | PostgreSQL |
+| Real-time    | WebSockets |
+| Authentication | JWT + RBAC |
+| Deployment   | Docker / AWS |
+
+---
+
+## 🎯 Design Principles
+
+- **Low latency for clinical safety**
+- **High availability under hospital load**
+- **Strict role-based security model**
+- **Separation of concerns across system layers**
+- **Scalable real-time architecture**
+
+---
+
+## 📌 Status
+
+> This project is currently in the design and specification phase. Implementation will follow after full requirements validation and architectural finalisation.
