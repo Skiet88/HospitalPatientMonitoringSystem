@@ -52,3 +52,27 @@ Eliciting and balancing requirements for a hospital patient monitoring system re
 ## Key Lesson
 
 The most important lesson from this requirements elicitation process was that **no stakeholder's needs exist in isolation**. Every design decision that satisfies one stakeholder creates a constraint for another. The role of a requirements engineer is not to pick winners, but to find trade-offs that are acceptable to all parties — ideally documenting those trade-offs explicitly so that future developers understand *why* a decision was made, not just *what* was decided.
+
+---
+
+## Assignment 7 Reflection: Kanban Board Implementation
+
+### Challenges in Selecting and Customizing the Template
+
+At first glance, all four GitHub project templates looked nearly identical — To Do, In Progress, Done. The real differences only became clear when examining the automation rules underneath each one. The Automated Kanban template automatically moves issues when they are opened or closed, which sounds straightforward until you realize this can conflict with a customized workflow where "In Progress" and "Testing" are separate stages.
+
+The challenge was that GitHub's templates are designed for general use, not for a specific project like HPMS. Selecting a template therefore required thinking not just about what the template offers today, but how it would behave as the project grows.
+
+### GitHub Projects vs. Trello vs. Jira
+
+**GitHub Projects** integrates directly with the codebase — issues, pull requests, and commits are all linked in one place. The limitation is that it is relatively simple compared to dedicated tools, with limited automation and no built-in time tracking or reporting.
+
+**Trello** is more visually intuitive and easier for non-developers. However, it has no native connection to code repositories, making traceability between tasks and code changes manual and error-prone.
+
+**Jira** is the most powerful — supporting full Scrum and Kanban workflows, velocity tracking, burndown charts, and deep integration with development tools. However, it is significantly more complex and overkill for a solo academic project.
+
+For HPMS at this stage, GitHub Projects is the right choice — it keeps everything in one place and is proportionate to the project's current scale.
+
+### Key Lesson
+
+A Kanban board is only as useful as the discipline applied to maintaining it. The board reflects reality only if tasks are moved honestly — blocked tasks go to Blocked, untested tasks do not jump to Done. Without that discipline, the board becomes a vanity dashboard that looks organized but provides no real insight into the state of the project.
