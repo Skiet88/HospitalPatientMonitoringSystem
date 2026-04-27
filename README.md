@@ -59,6 +59,15 @@ The system prioritises **patient safety, system reliability, and clinical effici
 - 💭 **[modeling_reflection.md](./modeling_reflection.md)**  
   Reflection on state and activity diagram modeling challenges
 
+- 🗃️ **[DOMAIN_MODEL.md](./DOMAIN_MODEL.md)**  
+  Domain entities, attributes, methods, relationships and business rules
+
+- 📐 **[CLASS_DIAGRAM.md](./CLASS_DIAGRAM.md)**  
+  Full UML class diagram in Mermaid with design decisions explained
+
+- 💭 **[domain_model_reflection.md](./domain_model_reflection.md)**  
+  Reflection on domain modeling and object-oriented design challenges
+
 ---
 
 ## 🚀 Core System Capabilities
