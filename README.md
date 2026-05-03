@@ -161,3 +161,9 @@ JaCoCo coverage report will be generated at:
 
 - target/site/jacoco/index.html
 
+### Coverage Evidence
+
+JaCoCo summary screenshot:
+
+![JaCoCo Coverage Summary](docs/evidence/jacoco-coverage-summary.png)
+
