@@ -119,3 +119,45 @@ Once implemented, HPMS will provide:
 ## 📌 Status
 
 > This project is currently in the design and specification phase. Implementation will follow after full requirements validation and architectural finalisation.
+
+---
+
+## Assignment 10 Implementation (Class Diagram to Code)
+
+### Language Choice
+
+This assignment is implemented in Java (JDK 17) to align with object-oriented modeling from the UML class diagram and to support strong typing for domain entities such as Patient, Alert, and VitalReading.
+
+### Source Layout
+
+- src: Core domain and service classes mapped from the class diagram
+- creational_patterns: Implementations of all six creational design patterns
+- tests: JUnit 5 test cases for patterns and key domain behavior
+
+### Key Design Decisions
+
+- UML-to-code mapping: Each class in CLASS_DIAGRAM.md has a direct Java implementation with private fields and domain methods.
+- Relationship modeling: Composition and aggregation are represented through object references and controlled collection ownership in Patient and Ward.
+- Service separation: AlertEngine and NotificationService are modeled as stateless/use-case services outside core entities.
+
+### Creational Pattern Justification
+
+- Simple Factory: VehicleFactory centralizes object creation for Car, Bike, and Truck.
+- Factory Method: PaymentService delegates processor instantiation to CreditCardPaymentService and PayPalPaymentService subclasses.
+- Abstract Factory: GUIFactory creates platform-specific UI families (WindowsButton/WindowsCheckbox or MacOSButton/MacOSCheckbox).
+- Builder: PizzaBuilder is used because Pizza has several optional ingredients and validation rules.
+- Prototype: ShapeCache clones preconfigured Circle and Rectangle prototypes to avoid repeated setup.
+- Singleton: DatabaseConnection ensures one globally shared connection instance and uses thread-safe lazy initialization.
+
+### Running Tests and Coverage
+
+With Maven installed:
+
+```bash
+mvn clean test
+```
+
+JaCoCo coverage report will be generated at:
+
+- target/site/jacoco/index.html
+
