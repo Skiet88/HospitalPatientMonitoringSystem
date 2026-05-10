@@ -45,6 +45,19 @@
                             </sources>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>add-repository-and-factory-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>repositories</source>
+                                <source>factories</source>
+                            </sources>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
