@@ -190,3 +190,70 @@ AlertEngine and NotificationService use **dependency** relationships (dashed arr
 - Attributes match the database schema defined in ARCHITECTURE.md (Level 4 Code Diagram)
 - Methods correspond to actions defined in activity diagrams (ACTIVITY_DIAGRAMS.md)
 - Relationships enforce the business rules defined in DOMAIN_MODEL.md (BR-01 to BR-10)
+
+---
+
+## Repository Layer Diagram (Assignment 11)
+
+```mermaid
+classDiagram
+    class Repository~T,ID~ {
+        <<interface>>
+        +save(entity: T) void
+        +findById(id: ID) Optional~T~
+        +findAll() List~T~
+        +delete(id: ID) void
+    }
+
+    class PatientRepository {
+        <<interface>>
+    }
+
+    class UserRepository {
+        <<interface>>
+    }
+
+    class AlertRepository {
+        <<interface>>
+    }
+
+    class AbstractInMemoryRepository~T,ID~ {
+        -storage: Map~ID,T~
+        -idExtractor: Function~T,ID~
+        +save(entity: T) void
+        +findById(id: ID) Optional~T~
+        +findAll() List~T~
+        +delete(id: ID) void
+    }
+
+    class InMemoryPatientRepository
+    class InMemoryUserRepository
+    class InMemoryAlertRepository
+
+    class DatabasePatientRepository {
+        <<stub>>
+    }
+
+    class RepositoryFactory {
+        +getPatientRepository(storageType) PatientRepository
+        +getUserRepository(storageType) UserRepository
+        +getAlertRepository(storageType) AlertRepository
+    }
+
+    Repository <|.. PatientRepository
+    Repository <|.. UserRepository
+    Repository <|.. AlertRepository
+
+    AbstractInMemoryRepository <|-- InMemoryPatientRepository
+    AbstractInMemoryRepository <|-- InMemoryUserRepository
+    AbstractInMemoryRepository <|-- InMemoryAlertRepository
+
+    PatientRepository <|.. InMemoryPatientRepository
+    UserRepository <|.. InMemoryUserRepository
+    AlertRepository <|.. InMemoryAlertRepository
+    PatientRepository <|.. DatabasePatientRepository
+
+    RepositoryFactory ..> PatientRepository
+    RepositoryFactory ..> UserRepository
+    RepositoryFactory ..> AlertRepository
+```

@@ -167,3 +167,31 @@ JaCoCo summary screenshot:
 
 ![JaCoCo Coverage Summary](docs/evidence/jacoco-coverage-summary.png)
 
+---
+
+## Assignment 11 Implementation (Persistence Repository Layer)
+
+### Repository Layer Deliverables
+
+- repositories: Generic and entity-specific repository interfaces.
+- repositories/inmemory: HashMap-backed in-memory implementations.
+- repositories/database: Future storage stub (database repository placeholder).
+- factories: Storage abstraction via RepositoryFactory.
+- tests/com/hpms/repositories: CRUD and abstraction tests.
+
+### Repository Design Justification
+
+- Used generics in Repository<T, ID> to avoid duplicate CRUD method definitions across entities.
+- Added entity repositories (PatientRepository, UserRepository, AlertRepository) to preserve type safety and allow future custom queries.
+- Used a Factory Pattern for storage abstraction so services can switch storage backends without changing business logic.
+
+### Storage Abstraction Choice
+
+- Choice: Factory Pattern
+- Reason: The RepositoryFactory centralizes storage selection and cleanly supports adding DATABASE, FILESYSTEM, or API repositories in future iterations.
+
+### Future-Proofing
+
+- Added DatabasePatientRepository as a stub implementation with explicit UnsupportedOperationException markers.
+- Structure now supports adding repositories for SQL/NoSQL/file backends with no interface changes.
+
