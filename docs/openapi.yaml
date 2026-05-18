@@ -1,0 +1,58 @@
+openapi: 3.0.3
+info:
+  title: HPMS Service API
+  version: 1.0.0
+  description: REST API for Patient, User, and Alert services (Assignment 12).
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/patients:
+    get:
+      summary: Fetch all patients
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create patient
+      responses:
+        '201':
+          description: Patient created
+  /api/users:
+    get:
+      summary: Fetch all users
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create user
+      responses:
+        '201':
+          description: User created
+  /api/alerts:
+    get:
+      summary: Fetch all alerts
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create alert
+      responses:
+        '201':
+          description: Alert created
+  /api/alerts/{id}/acknowledge:
+    post:
+      summary: Acknowledge alert
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Alert acknowledged
+        '404':
+          description: Alert not found
+        '400':
+          description: Invalid alert state
