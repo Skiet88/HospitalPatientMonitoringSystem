@@ -195,3 +195,57 @@ JaCoCo summary screenshot:
 - Added DatabasePatientRepository as a stub implementation with explicit UnsupportedOperationException markers.
 - Structure now supports adding repositories for SQL/NoSQL/file backends with no interface changes.
 
+---
+
+## Assignment 12 Implementation (Service Layer and REST API)
+
+### Implemented Models (minimum 3)
+
+- Patient
+- User
+- Alert
+
+### Service Layer Deliverables
+
+- services/com/hpms/services/PatientService.java
+- services/com/hpms/services/UserService.java
+- services/com/hpms/services/AlertService.java
+- services/com/hpms/services/exceptions/
+
+Business rules include:
+
+- Patient discharge only allowed when patient is admitted.
+- User deactivation cannot be applied twice.
+- Alert acknowledgment only allowed for valid alert states.
+
+Unit tests:
+
+- tests/com/hpms/services/PatientServiceTest.java
+- tests/com/hpms/services/UserServiceTest.java
+- tests/com/hpms/services/AlertServiceTest.java
+
+### REST API Deliverables
+
+- api/com/hpms/api/HpmsApiApplication.java
+- api/com/hpms/api/PatientController.java
+- api/com/hpms/api/UserController.java
+- api/com/hpms/api/AlertController.java
+- api/com/hpms/api/ApiExceptionHandler.java
+- api/com/hpms/api/dto/
+
+Integration tests:
+
+- tests/com/hpms/api/ApiIntegrationTest.java
+
+### OpenAPI / Swagger
+
+- Static OpenAPI file: docs/openapi.yaml
+- Auto-generated API docs endpoint (runtime): http://localhost:8080/v3/api-docs
+- Swagger UI endpoint (runtime): http://localhost:8080/swagger-ui/index.html
+
+### Run API
+
+```bash
+mvn spring-boot:run
+```
+

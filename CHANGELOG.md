@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 2026-05-18 - Assignment 12
+
+### Added
+- Added service layer for three core entities under services/com/hpms/services:
+  - PatientService
+  - UserService
+  - AlertService
+- Added service exceptions for business rule and not-found handling.
+- Added REST API layer under api/com/hpms/api with controllers for patient, user, and alert workflows.
+- Added API request DTOs and centralized exception handler.
+- Added integration test for REST API flow under tests/com/hpms/api/ApiIntegrationTest.java.
+- Added service unit tests under tests/com/hpms/services.
+- Added OpenAPI specification file at docs/openapi.yaml.
+
+### Updated
+- Updated pom.xml with Spring Boot + SpringDoc dependencies and source folder registration for services/api.
+- Updated README.md with Assignment 12 architecture, endpoints, docs, and run instructions.
+
 ## 2026-05-10 - Assignment 11
 
 ### Added
@@ -8,7 +26,6 @@
 - Added repository storage abstraction with RepositoryFactory under factories/com/hpms/factories.
 - Added future storage stub DatabasePatientRepository under repositories/com/hpms/repositories/database.
 - Added repository CRUD tests under tests/com/hpms/repositories/RepositoryLayerTest.java.
-- Added Assignment 11 issue/backlog checklist in ASSIGNMENT11_ISSUES.md.
 
 ### Updated
 - Updated pom.xml to include repositories and factories as source directories.
