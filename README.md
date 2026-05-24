@@ -118,7 +118,8 @@ Once implemented, HPMS will provide:
 
 ## 📌 Status
 
-> This project is currently in the design and specification phase. Implementation will follow after full requirements validation and architectural finalisation.
+Core assignment deliverables are implemented and validated with automated tests.
+Open sprint user stories in GitHub Issues represent future roadmap items beyond current assignment scope.
 
 ---
 
@@ -248,4 +249,67 @@ Integration tests:
 ```bash
 mvn spring-boot:run
 ```
+
+---
+
+## Assignment 13 Implementation (CI/CD with GitHub Actions)
+
+### CI/CD Workflow Files
+
+- `.github/workflows/ci.yml`
+- `PROTECTION.md`
+
+### Branch Protection Rules (main)
+
+Configured in GitHub Settings -> Branches -> Branch protection rules:
+
+- Require pull request reviews: minimum 1 approval
+- Require status checks to pass before merging
+- Restrict direct pushes to `main`
+
+### CI Pipeline Behavior
+
+The workflow triggers on:
+
+- Every push to any branch
+- Every pull request targeting `main`
+
+CI steps:
+
+1. Set up Java 17
+2. Run Maven unit/integration tests (`mvn -B clean test`)
+
+If tests fail, the PR cannot merge when branch protection requires the CI check.
+
+### CD Pipeline Behavior
+
+When code is merged into `main` (push event on `main`), the workflow:
+
+1. Builds the project JAR (`mvn -B clean package -DskipTests`)
+2. Uploads the built artifact using GitHub Actions artifacts
+
+Artifact name in Actions:
+
+- `hpms-jar`
+
+### How to Run Tests Locally
+
+```bash
+mvn clean test
+```
+
+### How to Validate Package Locally
+
+```bash
+mvn clean package
+```
+
+### PR Workflow Evidence Guide
+
+For assignment evidence screenshots, capture:
+
+1. Branch protection rule settings for `main`
+2. A PR showing required CI checks
+3. A failing check that blocks merge (optional PR intentionally failing test)
+4. A successful run on `main` showing uploaded `hpms-jar` artifact
 
